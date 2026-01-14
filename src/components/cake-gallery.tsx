@@ -17,7 +17,6 @@ export function CakeGallery() {
       <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
         <div className="flex items-center gap-2 text-sm font-medium text-muted-foreground">
             <Filter size={16}/>
-            <span>Filter by category:</span>
         </div>
         <div className="flex flex-wrap items-center justify-center gap-2">
           {cakeCategories.map((category) => (
