@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState } from "react";
@@ -22,15 +23,16 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
-import { CalendarDays, Clock } from "lucide-react";
+import { Clock } from "lucide-react";
 import { format } from "date-fns";
 import { useOrders } from "@/context/order-context";
 
 type BookingDialogProps = {
   cake: Cake;
+  children: React.ReactNode;
 };
 
-export function BookingDialog({ cake }: BookingDialogProps) {
+export function BookingDialog({ cake, children }: BookingDialogProps) {
   const [date, setDate] = useState<Date | undefined>(new Date());
   const [time, setTime] = useState<string | undefined>();
   const [open, setOpen] = useState(false);
@@ -59,10 +61,7 @@ export function BookingDialog({ cake }: BookingDialogProps) {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button size="lg" className="w-full">
-          <CalendarDays className="mr-2 h-5 w-5" />
-          Book for Pickup or Delivery
-        </Button>
+        {children}
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
