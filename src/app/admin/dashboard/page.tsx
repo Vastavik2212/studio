@@ -78,9 +78,6 @@ export default function AdminDashboardPage() {
         {orders.length === 0 ? (
           <div className="text-center py-16">
             <p className="text-lg text-muted-foreground mb-4">There are no orders yet.</p>
-            <Button asChild>
-              <Link href="/">Browse Cakes</Link>
-            </Button>
           </div>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
