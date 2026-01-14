@@ -15,19 +15,28 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
+import adminData from "@/lib/admin-data.json";
 
 export function AdminLoginDialog({ children }: { children: React.ReactNode }) {
   const [open, setOpen] = useState(false);
+  const [bakeryName, setBakeryName] = useState("");
+  const [mobile, setMobile] = useState("");
   const { toast } = useToast();
 
   const handleLogin = () => {
-    // Basic validation for now.
-    // In a real app, you'd handle Firebase authentication here.
-    toast({
-      title: "Login Attempted",
-      description: "Admin login functionality is under development.",
-    });
-    setOpen(false);
+    if (bakeryName === adminData.bakeryName && mobile === adminData.mobile) {
+      toast({
+        title: "Login Successful",
+        description: "Welcome, Admin!",
+      });
+      setOpen(false);
+    } else {
+      toast({
+        variant: "destructive",
+        title: "Login Failed",
+        description: "Invalid credentials. Please try again.",
+      });
+    }
   };
 
   return (
@@ -47,13 +56,26 @@ export function AdminLoginDialog({ children }: { children: React.ReactNode }) {
             <Label htmlFor="bakery-name" className="text-right">
               Bakery Name
             </Label>
-            <Input id="bakery-name" placeholder="e.g., Sweet Gallery" className="col-span-3" />
+            <Input
+              id="bakery-name"
+              placeholder="e.g., Sweet Gallery"
+              className="col-span-3"
+              value={bakeryName}
+              onChange={(e) => setBakeryName(e.target.value)}
+            />
           </div>
           <div className="grid grid-cols-4 items-center gap-4">
             <Label htmlFor="mobile" className="text-right">
               Mobile No.
             </Label>
-            <Input id="mobile" type="tel" placeholder="e.g., 9876543210" className="col-span-3" />
+            <Input
+              id="mobile"
+              type="tel"
+              placeholder="e.g., 9876543210"
+              className="col-span-3"
+              value={mobile}
+              onChange={(e) => setMobile(e.target.value)}
+            />
           </div>
         </div>
         <DialogFooter>
