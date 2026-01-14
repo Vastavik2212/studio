@@ -21,7 +21,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { PlusCircle } from "lucide-react";
 import { useCakeData } from "@/context/cake-context";
@@ -34,12 +33,9 @@ export function AddCakeDialog() {
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
   const [category, setCategory] = useState<any>();
-  const [description, setDescription] = useState("");
-  const [imageUrl, setImageUrl] = useState("");
-  const [ingredients, setIngredients] = useState("");
 
   const handleAddCake = () => {
-    if (!name || !price || !category || !description || !imageUrl || !ingredients) {
+    if (!name || !price || !category) {
       toast({
         variant: "destructive",
         title: "Missing Information",
@@ -53,14 +49,14 @@ export function AddCakeDialog() {
       name,
       price: parseFloat(price),
       category,
-      description,
+      description: "A delicious new cake.", // Default value
       image: {
         id: name.toLowerCase().replace(/\s+/g, "-"),
-        imageUrl,
+        imageUrl: `https://picsum.photos/seed/${Math.random()}/600/400`, // Default placeholder
         imageHint: name,
-        description: description,
+        description: "A delicious new cake.",
       },
-      ingredients: ingredients.split(",").map((i) => i.trim()),
+      ingredients: [], // Default value
     };
 
     addCake(newCake);
@@ -74,9 +70,6 @@ export function AddCakeDialog() {
     setName("");
     setPrice("");
     setCategory(undefined);
-    setDescription("");
-    setImageUrl("");
-    setIngredients("");
     setOpen(false);
   };
 
@@ -126,24 +119,6 @@ export function AddCakeDialog() {
                 ))}
               </SelectContent>
             </Select>
-          </div>
-          <div className="grid grid-cols-4 items-start gap-4">
-            <Label htmlFor="description" className="text-right pt-2">
-              Description
-            </Label>
-            <Textarea id="description" value={description} onChange={(e) => setDescription(e.target.value)} className="col-span-3" placeholder="A rich and decadent..."/>
-          </div>
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="imageUrl" className="text-right">
-              Image URL
-            </Label>
-            <Input id="imageUrl" value={imageUrl} onChange={(e) => setImageUrl(e.target.value)} className="col-span-3" placeholder="https://images.unsplash.com/..."/>
-          </div>
-          <div className="grid grid-cols-4 items-start gap-4">
-            <Label htmlFor="ingredients" className="text-right pt-2">
-              Ingredients
-            </Label>
-            <Textarea id="ingredients" value={ingredients} onChange={(e) => setIngredients(e.target.value)} className="col-span-3" placeholder="Flour, Sugar, Cocoa Powder... (comma-separated)"/>
           </div>
         </div>
         <DialogFooter>
