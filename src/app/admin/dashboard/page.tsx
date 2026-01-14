@@ -1,20 +1,52 @@
+
 "use client";
 
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useOrders } from "@/context/order-context";
 import { useAdminAuth } from "@/context/admin-auth-context";
-import { Header } from "@/components/header";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { format } from "date-fns";
-import { ChevronLeft } from "lucide-react";
+import { ChevronLeft, LogOut } from "lucide-react";
+import { SweetGalleryIcon } from "@/components/icons";
+
+function AdminHeader() {
+  const { logout } = useAdminAuth();
+  const router = useRouter();
+
+  const handleLogout = () => {
+    logout();
+    router.push('/admin/login');
+  };
+
+  return (
+    <header className="py-6 px-4 sm:px-8 container flex items-center justify-between animate-fade-in border-b">
+      <Link href="/" className="flex items-center gap-3 sm:gap-4 group cursor-pointer">
+        <SweetGalleryIcon className="h-10 w-10 sm:h-12 sm:w-12 text-primary transition-transform group-hover:scale-110" />
+        <div>
+          <h1 className="font-headline text-3xl sm:text-4xl tracking-tight font-bold text-foreground">
+            Sweet Gallery
+          </h1>
+          <p className="hidden sm:block mt-1 text-sm text-muted-foreground">
+            Admin Panel
+          </p>
+        </div>
+      </Link>
+      <Button variant="outline" onClick={handleLogout}>
+        <LogOut size={18} />
+        <span className="hidden sm:inline">Logout</span>
+      </Button>
+    </header>
+  );
+}
+
 
 export default function AdminDashboardPage() {
   const { orders } = useOrders();
-  const { isAdmin } = useAdminAuth();
+  const { isAdmin, logout } = useAdminAuth();
   const router = useRouter();
 
   useEffect(() => {
@@ -30,7 +62,7 @@ export default function AdminDashboardPage() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <Header />
+      <AdminHeader />
       <main className="flex-1 container px-4 py-8">
         <div className="mb-8">
           <Link href="/" className="inline-flex items-center text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
