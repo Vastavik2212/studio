@@ -3,6 +3,7 @@ import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 import { cn } from '@/lib/utils';
 import { OrderProvider } from '@/context/order-context';
+import { AdminAuthProvider } from '@/context/admin-auth-context';
 import { Footer } from '@/components/footer';
 
 export const metadata: Metadata = {
@@ -23,12 +24,14 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet" />
       </head>
       <body className={cn("font-body antialiased flex flex-col min-h-screen")}>
-        <OrderProvider>
-          <div className="flex-1">
-            {children}
-          </div>
-          <Footer />
-        </OrderProvider>
+        <AdminAuthProvider>
+          <OrderProvider>
+            <div className="flex-1">
+              {children}
+            </div>
+            <Footer />
+          </OrderProvider>
+        </AdminAuthProvider>
         <Toaster />
       </body>
     </html>

@@ -1,6 +1,9 @@
 "use client";
 
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 import { useOrders } from "@/context/order-context";
+import { useAdminAuth } from "@/context/admin-auth-context";
 import { Header } from "@/components/header";
 import Image from "next/image";
 import Link from "next/link";
@@ -11,6 +14,19 @@ import { ChevronLeft } from "lucide-react";
 
 export default function AdminDashboardPage() {
   const { orders } = useOrders();
+  const { isAdmin } = useAdminAuth();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (!isAdmin) {
+      router.replace("/admin/login");
+    }
+  }, [isAdmin, router]);
+
+  if (!isAdmin) {
+    // You can render a loading spinner or null here
+    return null;
+  }
 
   return (
     <div className="flex flex-col min-h-screen">
