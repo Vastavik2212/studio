@@ -1,3 +1,52 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "cake-chocolate-fudge",
+      "description": "A rich and decadent chocolate fudge cake with glossy ganache.",
+      "imageUrl": "https://images.unsplash.com/photo-1576618148423-df549bcb6972?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxjaG9jb2xhdGUlMjBjYWtlfGVufDB8fHx8MTc2ODMxMzYzMnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "chocolate cake"
+    },
+    {
+      "id": "cake-red-velvet",
+      "description": "A classic red velvet cake with cream cheese frosting and a velvety texture.",
+      "imageUrl": "https://images.unsplash.com/photo-1602663491496-73f07481dbea?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxyZWQlMjBjYWtlfGVufDB8fHx8MTc2ODM3NjEyNHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "red cake"
+    },
+    {
+      "id": "cake-lemon-drizzle",
+      "description": "A zesty lemon drizzle loaf cake, perfect for an afternoon tea.",
+      "imageUrl": "https://images.unsplash.com/photo-1691242720281-9269de4d9f86?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxsZW1vbiUyMGNha2V8ZW58MHx8fHwxNzY4MzQ3ODYyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "lemon cake"
+    },
+    {
+      "id": "cake-strawberry-cheesecake",
+      "description": "A creamy cheesecake on a biscuit base, topped with fresh strawberries.",
+      "imageUrl": "https://images.unsplash.com/photo-1553882299-9601a48ebe6a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxzdHJhd2JlcnJ5JTIwY2hlZXNlY2FrZXxlbnwwfHx8fDE3NjgzMjk0MzJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "strawberry cheesecake"
+    },
+    {
+      "id": "cake-wedding-vanilla",
+      "description": "An elegant multi-tiered vanilla sponge cake for weddings.",
+      "imageUrl": "https://images.unsplash.com/photo-1565661834013-d196ca46e14e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHx3ZWRkaW5nJTIwY2FrZXxlbnwwfHx8fDE3NjgzMTgyOTR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "wedding cake"
+    },
+    {
+      "id": "cake-birthday-funfetti",
+      "description": "A fun and colorful funfetti cake, perfect for birthday celebrations.",
+      "imageUrl": "https://images.unsplash.com/photo-1607482369189-a53b6e71fa48?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxiaXJ0aGRheSUyMGNha2V8ZW58MHx8fHwxNzY4MjY5OTU5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "birthday cake"
+    },
+    {
+      "id": "cupcakes-assorted",
+      "description": "A box of assorted cupcakes with various flavors and toppings.",
+      "imageUrl": "https://images.unsplash.com/photo-1640806354740-d47c98c190ea?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxjdXBjYWtlc3xlbnwwfHx8fDE3NjgzNDc4NjJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "cupcakes"
+    },
+    {
+      "id": "cake-carrot",
+      "description": "A moist carrot cake packed with spices and topped with cream cheese frosting.",
+      "imageUrl": "https://images.unsplash.com/photo-1633046483479-932d80cd4356?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxjYXJyb3QlMjBjYWtlfGVufDB8fHx8MTc2ODM0Nzg2Mnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "carrot cake"
+    }
+  ]
 }
