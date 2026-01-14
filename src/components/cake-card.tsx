@@ -31,7 +31,7 @@ export function CakeCard({ cake }: CakeCardProps) {
           <Badge variant="secondary" className="mb-2">{cake.category}</Badge>
           <h3 className="font-headline text-xl font-bold leading-snug truncate">{cake.name}</h3>
           <p className="mt-2 text-lg font-semibold text-primary">
-            ${cake.price.toFixed(2)}
+            ₹{cake.price.toFixed(2)}
           </p>
         </CardContent>
       </Card>

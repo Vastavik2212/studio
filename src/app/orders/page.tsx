@@ -48,7 +48,7 @@ export default function OrdersPage() {
                 <CardContent className="p-4">
                   <CardTitle className="font-headline text-xl font-bold leading-snug truncate mb-2">{order.cake.name}</CardTitle>
                   <p className="text-lg font-semibold text-primary">
-                    ${order.cake.price.toFixed(2)}
+                    ₹{order.cake.price.toFixed(2)}
                   </p>
                   <p className="text-sm text-muted-foreground mt-2">
                     Ordered for: {format(new Date(order.pickupDate), "PPP")} at {order.pickupTime}

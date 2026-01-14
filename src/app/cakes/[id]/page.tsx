@@ -50,7 +50,7 @@ export default function CakePage({ params }: CakePageProps) {
           <div className="flex flex-col">
             <Badge variant="secondary" className="w-fit mb-2">{cake.category}</Badge>
             <h1 className="font-headline text-4xl lg:text-5xl font-bold">{cake.name}</h1>
-            <p className="mt-4 text-3xl font-semibold text-primary">${cake.price.toFixed(2)}</p>
+            <p className="mt-4 text-3xl font-semibold text-primary">₹{cake.price.toFixed(2)}</p>
             
             <Separator className="my-6" />
             
