@@ -24,6 +24,7 @@ import {
 import { useToast } from "@/hooks/use-toast";
 import { CalendarDays, Clock } from "lucide-react";
 import { format } from "date-fns";
+import { useOrders } from "@/context/order-context";
 
 type BookingDialogProps = {
   cake: Cake;
@@ -34,11 +35,13 @@ export function BookingDialog({ cake }: BookingDialogProps) {
   const [time, setTime] = useState<string | undefined>();
   const [open, setOpen] = useState(false);
   const { toast } = useToast();
+  const { addOrder } = useOrders();
 
   const timeSlots = ["10:00 AM", "12:00 PM", "2:00 PM", "4:00 PM", "6:00 PM"];
 
   const handleBooking = () => {
     if (date && time) {
+      addOrder(cake, date, time);
       toast({
         title: "Booking Confirmed!",
         description: `Your order for ${cake.name} is confirmed for pickup on ${format(date, "PPP")} at ${time}.`,
