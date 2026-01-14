@@ -12,12 +12,6 @@ import { Separator } from "@/components/ui/separator";
 import { ChevronLeft, Dot, CalendarDays } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-export function generateStaticParams() {
-  return cakeData.map((cake) => ({
-    id: cake.id,
-  }));
-}
-
 type CakePageProps = {
   params: { id: string };
 };
@@ -25,10 +19,6 @@ type CakePageProps = {
 export default function CakePage({ params }: CakePageProps) {
   const router = useRouter();
   const cake = cakeData.find((c) => c.id === params.id);
-
-  if (!cake) {
-    notFound();
-  }
 
   // Since we are removing this page, we'll just redirect to the home page
   // in case someone accesses it directly. In a real app you might want to 
@@ -38,6 +28,9 @@ export default function CakePage({ params }: CakePageProps) {
     return null;
   }
 
+  if (!cake) {
+    notFound();
+  }
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -96,4 +89,3 @@ export default function CakePage({ params }: CakePageProps) {
     </div>
   );
 }
-
