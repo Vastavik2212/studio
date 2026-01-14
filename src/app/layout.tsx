@@ -5,6 +5,7 @@ import { cn } from '@/lib/utils';
 import { OrderProvider } from '@/context/order-context';
 import { AdminAuthProvider } from '@/context/admin-auth-context';
 import { Footer } from '@/components/footer';
+import { CakeDataProvider } from '@/context/cake-context';
 
 export const metadata: Metadata = {
   title: 'Sweet Gallery',
@@ -26,10 +27,12 @@ export default function RootLayout({
       <body className={cn("font-body antialiased flex flex-col min-h-screen")}>
         <AdminAuthProvider>
           <OrderProvider>
-            <div className="flex-1">
-              {children}
-            </div>
-            <Footer />
+            <CakeDataProvider>
+              <div className="flex-1">
+                {children}
+              </div>
+              <Footer />
+            </CakeDataProvider>
           </OrderProvider>
         </AdminAuthProvider>
         <Toaster />

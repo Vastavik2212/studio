@@ -1,16 +1,18 @@
 "use client";
 
 import { useState } from "react";
-import { cakeData, cakeCategories } from "@/lib/cake-data";
+import { cakeCategories } from "@/lib/cake-data";
+import { useCakeData } from "@/context/cake-context";
 import { CakeCard } from "./cake-card";
 import { Button } from "./ui/button";
 import { Filter } from "lucide-react";
 
 export function CakeGallery() {
+  const { cakes } = useCakeData();
   const [filter, setFilter] = useState("All");
 
   const filteredCakes =
-    filter === "All" ? cakeData : cakeData.filter((cake) => cake.category === filter);
+    filter === "All" ? cakes : cakes.filter((cake) => cake.category === filter);
 
   return (
     <div className="animate-fade-in">

@@ -12,6 +12,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { format } from "date-fns";
 import { ChevronLeft, LogOut } from "lucide-react";
 import { SweetGalleryIcon } from "@/components/icons";
+import { AddCakeDialog } from "@/components/add-cake-dialog";
 
 function AdminHeader() {
   const { logout } = useAdminAuth();
@@ -35,10 +36,13 @@ function AdminHeader() {
           </p>
         </div>
       </Link>
-      <Button variant="outline" onClick={handleLogout}>
-        <LogOut size={18} />
-        <span className="hidden sm:inline">Logout</span>
-      </Button>
+      <div className="flex items-center gap-4">
+        <AddCakeDialog />
+        <Button variant="outline" onClick={handleLogout}>
+          <LogOut size={18} />
+          <span className="hidden sm:inline">Logout</span>
+        </Button>
+      </div>
     </header>
   );
 }
