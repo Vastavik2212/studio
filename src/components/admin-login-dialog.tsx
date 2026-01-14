@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState } from "react";
@@ -21,21 +22,27 @@ export function AdminLoginDialog({ children }: { children: React.ReactNode }) {
   const [open, setOpen] = useState(false);
   const [bakeryName, setBakeryName] = useState("");
   const [mobile, setMobile] = useState("");
+  const [currentAdminData, setCurrentAdminData] = useState(adminData);
   const { toast } = useToast();
 
   const handleLogin = () => {
-    if (bakeryName === adminData.bakeryName && mobile === adminData.mobile) {
+    if (bakeryName === currentAdminData.bakeryName && mobile === currentAdminData.mobile) {
       toast({
         title: "Login Successful",
         description: "Welcome, Admin!",
       });
       setOpen(false);
     } else {
+      // This is insecure and for prototyping only.
+      // In a real app, you would have a secure backend to update credentials.
+      const newAdminData = { bakeryName, mobile };
+      setCurrentAdminData(newAdminData);
+      
       toast({
-        variant: "destructive",
-        title: "Login Failed",
-        description: "Invalid credentials. Please try again.",
+        title: "New Credentials Set",
+        description: "Login successful. These will be your new credentials for next time.",
       });
+      setOpen(false);
     }
   };
 
@@ -48,7 +55,7 @@ export function AdminLoginDialog({ children }: { children: React.ReactNode }) {
         <DialogHeader>
           <DialogTitle className="font-headline text-2xl">Admin Login</DialogTitle>
           <DialogDescription>
-            Enter your credentials to access the admin dashboard.
+            Enter your credentials to access the admin dashboard. If this is your first time, your entry will be saved.
           </DialogDescription>
         </DialogHeader>
         <div className="grid gap-4 py-4">
