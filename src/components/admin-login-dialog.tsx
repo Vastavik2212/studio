@@ -2,6 +2,7 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -24,14 +25,16 @@ export function AdminLoginDialog({ children }: { children: React.ReactNode }) {
   const [mobile, setMobile] = useState("");
   const [currentAdminData, setCurrentAdminData] = useState(adminData);
   const { toast } = useToast();
+  const router = useRouter();
 
   const handleLogin = () => {
     if (bakeryName === currentAdminData.bakeryName && mobile === currentAdminData.mobile) {
       toast({
         title: "Login Successful",
-        description: "Welcome, Admin!",
+        description: "Redirecting to admin dashboard...",
       });
       setOpen(false);
+      router.push("/admin/dashboard");
     } else {
       // This is insecure and for prototyping only.
       // In a real app, you would have a secure backend to update credentials.
@@ -40,9 +43,10 @@ export function AdminLoginDialog({ children }: { children: React.ReactNode }) {
       
       toast({
         title: "New Credentials Set",
-        description: "Login successful. These will be your new credentials for next time.",
+        description: "Login successful. Redirecting to admin dashboard...",
       });
       setOpen(false);
+      router.push("/admin/dashboard");
     }
   };
 
